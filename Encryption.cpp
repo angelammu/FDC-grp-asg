@@ -43,6 +43,38 @@ int main()
         cout << "Encrypted text: "<< encrpytedtxt;
     } else if (choice == 2) {
 
+        string encryptedtxt;
+        cout << "Message can only be alphabetical" << endl;
+        cout << "Enter message: ";
+        getline(cin, encryptedtxt);
+
+        int decryptedkey;
+        cout << "Enter key (0-25): ";
+        cin >> decryptedkey;
+        cin.ignore();
+
+        string decryptedtxt = encryptedtxt;
+
+        for (int i = 0; i < encryptedtxt.size(); i++) {
+        
+            if (encryptedtxt[i] == 32) {
+                continue; 
+            } else {
+
+                if ((encryptedtxt[i] - decryptedkey) < 97 && (encryptedtxt[i] >= 65 && encryptedtxt[i]) <= 90) {
+                    int temp = (encryptedtxt[i] - decryptedkey) + 26;
+                    decryptedtxt[i] = temp;
+                } else if ((encryptedtxt[i] - decryptedkey) < 65) {
+                    int temp = 97 - (encryptedtxt[i] - decryptedkey) + 26;
+                    decryptedtxt[i] = temp;
+                } else {
+                    decryptedtxt[i] = encryptedtxt[i] - decryptedkey;
+                }
+            }
+        }
+
+        cout << "Decrypted text: "<< decryptedtxt;
+
     } else {
         cout << "Invalid option";
     }
