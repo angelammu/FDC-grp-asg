@@ -85,10 +85,11 @@ int main()
 	        cout << "Decrypted text: "<< decryptedtxt << endl << endl;
 	
 	    } else {
-	        cout << "Invalid option";
+	        cout << "Exiting program...";
 	        break;
 	    }
 	}
 
     return 0;
 }
+
